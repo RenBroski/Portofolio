@@ -1,18 +1,35 @@
-# latihan_5 – Aplikasi Web Pengelolaan Data Mahasiswa dengan Validasi
+# 🧑‍🎓 Aplikasi CRUD Data Siswa
 
-`latihan_5` adalah aplikasi web berbasis PHP Native yang digunakan untuk mengelola data mahasiswa dengan fitur validasi input. Aplikasi ini memungkinkan pengguna untuk menambahkan, menampilkan, dan menghapus data mahasiswa dengan validasi pada form input.
+Aplikasi ini digunakan untuk mengelola data siswa (tambah, edit, hapus) dengan penyimpanan data di MySQL.
 
-## Fitur Utama
-
-- Menambahkan data mahasiswa baru melalui form input dengan validasi.
-- Menampilkan daftar data mahasiswa dalam bentuk tabel.
-- Menghapus data mahasiswa yang tidak diperlukan.
-
-## Teknologi yang Digunakan
+## 🚀 Teknologi yang Digunakan
 
 - PHP Native
-- HTML & CSS
-- XAMPP (Apache & MySQL)
+- MySQL Database
+- HTML5, CSS3
 
+## 📋 Fitur Utama
 
+- Tambah data siswa
+- Edit dan hapus data siswa
+- Menampilkan data dalam tabel
+- Validasi form input
 
+## 💾 Struktur Database
+
+**Tabel: `siswa`**
+| Field  | Tipe              | Keterangan        |
+|--------|-------------------|-------------------|
+| id     | INT, AUTO_INCREMENT | Primary key     |
+| nama   | VARCHAR(100)      | Nama siswa        |
+| nis    | VARCHAR(20)       | Nomor Induk Siswa |
+| kelas  | VARCHAR(20)       | Kelas siswa       |
+| alamat | TEXT              | Alamat siswa      |
+
+## 📂 Struktur File
+
+- `index.php` – Menampilkan form dan tabel data siswa
+- `proses.php` – Proses simpan data siswa
+- `edit.php` – Form dan proses edit data
+- `hapus.php` – Menghapus data siswa
+- `koneksi.php` – Koneksi ke database
