@@ -15,7 +15,7 @@ AplikasiKasir adalah aplikasi kasir desktop yang dikembangkan menggunakan Java d
 - Bahasa Pemrograman: Java  
 - IDE: NetBeans  
 - GUI: Java Swing  
-- Database: SQLite  
+- Database: MySql  
 - Platform: Desktop (Windows)
 
 ---
