@@ -14,10 +14,4 @@
 - HTML & CSS
 - XAMPP (Apache & MySQL)
 
-## Cara Penggunaan
 
-1. Pastikan XAMPP telah terinstal dan aktifkan Apache serta MySQL.
-2. Salin folder `ULANGAN` ke direktori `htdocs` di XAMPP.
-3. Akses aplikasi melalui browser dengan URL `http://localhost/ULANGAN`.
-4. Gunakan form yang tersedia untuk menambahkan data mahasiswa.
-5. Data yang telah ditambahkan akan ditampilkan dalam tabel di halaman utama.
