@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/softOrange"
+    android:gravity="center">
+
+    <!-- Logo dengan shadow -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:elevation="8dp"
+        android:background="@drawable/logo_bg"
+        android:padding="16dp"
+        android:scaleType="fitCenter" />
+
+    <!-- Judul App -->
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tebak Warna"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/logoImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Ren Studio Game -->
+    <TextView
+        android:id="@+id/studioName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ren Studio Game"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/appTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Loading Bar Rounded -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="8dp"
+        android:layout_below="@id/studioName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:indeterminate="true"
+        android:progressDrawable="@drawable/progress_custom" />
+</RelativeLayout>

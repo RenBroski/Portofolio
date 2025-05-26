@@ -1,0 +1,45 @@
+unit Udrh;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Data.DB,
+  Vcl.Mask, Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFDRH = class(TForm)
+    ADOConnection1: TADOConnection;
+    riwayat: TADOQuery;
+    riwayatNIK: TStringField;
+    riwayatnama: TStringField;
+    riwayattempatlahir: TStringField;
+    riwayattgllahir: TDateField;
+    riwayatagama: TStringField;
+    riwayatpekerjaan: TStringField;
+    riwayatalamat: TMemoField;
+    riwayatkodepos: TStringField;
+    Label1: TLabel;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDRH: TFDRH;
+
+implementation
+
+{$R *.dfm}
+
+end.

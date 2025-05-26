@@ -1,0 +1,52 @@
+unit Unit6;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls, Data.DB, Data.Win.ADODB;
+
+type
+  TFKlinik = class(TForm)
+    Image1: TImage;
+    MainMenu1: TMainMenu;
+    FILE1: TMenuItem;
+    FormPasien1: TMenuItem;
+    FormDokter1: TMenuItem;
+    ADOConnection1: TADOConnection;
+    UTUP1: TMenuItem;
+    procedure FormPasien1Click(Sender: TObject);
+    procedure UTUP1Click(Sender: TObject);
+    procedure FormDokter1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FKlinik: TFKlinik;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit1, Unit2;
+
+procedure TFKlinik.FormDokter1Click(Sender: TObject);
+begin
+   FDokter.ShowModal;
+end;
+
+procedure TFKlinik.FormPasien1Click(Sender: TObject);
+begin
+FPasien.ShowModal;
+end;
+
+procedure TFKlinik.UTUP1Click(Sender: TObject);
+begin
+     Application.Terminate;
+end;
+
+end.

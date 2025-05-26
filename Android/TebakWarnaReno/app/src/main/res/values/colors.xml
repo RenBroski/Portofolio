@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Warna Utama -->
+    <color name="primary">#6C63FF</color>
+    <color name="secondary">#3F3D56</color>
+    <color name="background">#F8F8F8</color>
+    <color name="accent">#FF6584</color>
+    <color name="softOrange">#f5d8ba</color> <!-- Biru soft seperti ilustrasi gambar -->
+
+
+    <color name="lightBackground">#FFF8E7</color>
+    <color name="buttonBackground">#FFF5E1</color>
+    <color name="lockColor">#FF4500</color>
+    <color name="checkColor">#32CD32</color>
+
+    <!-- Warna Tambahan -->
+    <color name="primary_light">#8A84FF</color>
+    <color name="primary_dark">#4A43D6</color>
+    <color name="text_primary">#3F3D56</color>
+    <color name="text_secondary">#6C63FF</color>
+    <color name="divider">#E0E0E0</color>
+</resources>

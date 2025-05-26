@@ -1,0 +1,136 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ToolWin, Vcl.ComCtrls,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, System.Rtti, System.Bindings.Outputs,
+  Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Data.Bind.Components, Data.Bind.DBScope, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls, Data.Win.ADODB;
+
+type
+  TFPasien = class(TForm)
+    Image1: TImage;
+    ToolBar1: TToolBar;
+    Tambah: TSpeedButton;
+    Simpan: TSpeedButton;
+    Ubah: TSpeedButton;
+    Hapus: TSpeedButton;
+    Batal: TSpeedButton;
+    Tutup: TSpeedButton;
+    Pasien: TADOQuery;
+    PasienNIK: TIntegerField;
+    PasienNama: TStringField;
+    PasienTempatLahir: TStringField;
+    PasienTglLahir: TDateField;
+    PasienJenisKelamin: TStringField;
+    DataSource1: TDataSource;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    ComboBox1: TComboBox;
+    LinkControlToField2: TLinkControlToField;
+    LinkFillControlToField2: TLinkFillControlToField;
+    procedure TambahClick(Sender: TObject);
+    procedure SimpanClick(Sender: TObject);
+    procedure UbahClick(Sender: TObject);
+    procedure HapusClick(Sender: TObject);
+    procedure TutupClick(Sender: TObject);
+    procedure BatalClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FPasien: TFPasien;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit6;
+
+procedure TFPasien.BatalClick(Sender: TObject);
+begin
+Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+
+  pasien.Cancel;
+end;
+
+procedure TFPasien.HapusClick(Sender: TObject);
+begin
+Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := True;
+  Simpan.Enabled := True;
+  Tutup.Enabled := False;
+
+
+  pasien.Edit;
+end;
+
+procedure TFPasien.SimpanClick(Sender: TObject);
+begin
+Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := False;
+  Tutup.Enabled := True;
+
+
+  pasien.Post;
+end;
+
+procedure TFPasien.TambahClick(Sender: TObject);
+begin
+     Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+
+  pasien.Insert;
+end;
+
+procedure TFPasien.TutupClick(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+procedure TFPasien.UbahClick(Sender: TObject);
+begin
+Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := True;
+  Simpan.Enabled := True;
+  Tutup.Enabled := False;
+
+
+  pasien.Edit;
+end;
+
+end.

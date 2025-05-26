@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="24dp">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/logohome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-25dp" />
+
+    <!-- Judul -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ren Studio Game"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/logoImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Adventure Button -->
+    <RelativeLayout
+        android:id="@+id/adventureButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/titleText"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_3d"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iconAdventure"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_clock"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/textAdventure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mainkan"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/iconAdventure"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+
+        <View
+            android:id="@+id/badgeView"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/badge_red"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp" />
+    </RelativeLayout>
+
+    <!-- ✅ Leaderboard Button -->
+    <RelativeLayout
+        android:id="@+id/leaderboardButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/adventureButton"
+        android:layout_marginTop="20dp"
+        android:background="@color/design_default_color_error"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iconLeaderboard"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/piala"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/textLeaderboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leaderboard"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/iconLeaderboard"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+    </RelativeLayout>
+
+    <!-- ✅ Challenge Button -->
+    <RelativeLayout
+        android:id="@+id/challengeButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/leaderboardButton"
+        android:layout_marginTop="20dp"
+        android:background="@color/design_default_color_primary"
+        android:padding="0dp">
+
+        <ImageView
+            android:id="@+id/iconChallenge"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_stage"
+        android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/textChallenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Challenge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/iconChallenge"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

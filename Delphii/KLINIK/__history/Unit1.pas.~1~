@@ -1,0 +1,60 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ToolWin, Vcl.ComCtrls,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, System.Rtti, System.Bindings.Outputs,
+  Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Data.Bind.Components, Data.Bind.DBScope, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls, Data.Win.ADODB;
+
+type
+  TFPasien = class(TForm)
+    Image1: TImage;
+    ToolBar1: TToolBar;
+    Tambah: TSpeedButton;
+    Simpan: TSpeedButton;
+    Ubah: TSpeedButton;
+    Hapus: TSpeedButton;
+    Batal: TSpeedButton;
+    Tutup: TSpeedButton;
+    Pasien: TADOQuery;
+    PasienNIK: TIntegerField;
+    PasienNama: TStringField;
+    PasienTempatLahir: TStringField;
+    PasienTglLahir: TDateField;
+    PasienJenisKelamin: TStringField;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    ComboBox1: TComboBox;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkFillControlToField1: TLinkFillControlToField;
+    LinkControlToField1: TLinkControlToField;
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FPasien: TFPasien;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit6;
+
+end.

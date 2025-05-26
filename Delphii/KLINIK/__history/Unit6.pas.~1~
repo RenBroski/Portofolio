@@ -1,0 +1,30 @@
+unit Unit6;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls;
+
+type
+  TFklinik = class(TForm)
+    Image1: TImage;
+    MainMenu1: TMainMenu;
+    FILE1: TMenuItem;
+    FormPasien1: TMenuItem;
+    FormDokter1: TMenuItem;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fklinik: TFklinik;
+
+implementation
+
+{$R *.dfm}
+
+end.

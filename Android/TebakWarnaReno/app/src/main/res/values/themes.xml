@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Style untuk CardView -->
+    <style name="CardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">@color/buttonBackground</item>
+    </style>
+
+    <!-- Base application theme -->
+    <style name="Base.Theme.TebakWarnaReno" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here -->
+        <item name="cardViewStyle">@style/CardViewStyle</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <!-- App Theme -->
+    <style name="Theme.TebakWarnaReno" parent="Base.Theme.TebakWarnaReno" />
+
+</resources>

@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8E7"
+    android:padding="16dp">
+
+    <!-- Tombol back -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Judul -->
+    <TextView
+        android:id="@+id/titleStage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Stage"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FF8C00"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        android:max="10"
+        android:progressTint="@color/softOrange"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@android:color/darker_gray" />
+
+    <!-- Grid Stage -->
+    <GridLayout
+        android:id="@+id/stageGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleStage"
+        android:layout_marginTop="40dp"
+        android:columnCount="2"
+        android:rowCount="5"
+        android:layout_centerHorizontal="true"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true"
+        android:padding="16dp" />
+</RelativeLayout>

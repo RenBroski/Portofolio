@@ -1,0 +1,134 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Rtti, System.Bindings.Outputs,
+  Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Data.Bind.Components, Data.Bind.DBScope, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Data.Win.ADODB, Vcl.Buttons, Vcl.ToolWin,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+
+type
+  TFDokter = class(TForm)
+    Image1: TImage;
+    ToolBar1: TToolBar;
+    Tambah: TSpeedButton;
+    Simpan: TSpeedButton;
+    Ubah: TSpeedButton;
+    Hapus: TSpeedButton;
+    Batal: TSpeedButton;
+    Tutup: TSpeedButton;
+    latihan1: TADOQuery;
+    latihan1NIP: TStringField;
+    latihan1nama: TStringField;
+    latihan1TempatLahir: TStringField;
+    latihan1TglLahir: TDateField;
+    latihan1SIP: TStringField;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    DateTimePicker1: TDateTimePicker;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    DBGrid1: TDBGrid;
+    procedure TambahClick(Sender: TObject);
+    procedure SimpanClick(Sender: TObject);
+    procedure UbahClick(Sender: TObject);
+    procedure HapusClick(Sender: TObject);
+    procedure BatalClick(Sender: TObject);
+    procedure TutupClick(Sender: TObject);
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+  end;
+
+var
+  FDokter: TFDokter;
+
+implementation
+
+{$R *.dfm}
+
+
+
+uses Unit6;
+
+procedure TFDokter.BatalClick(Sender: TObject);
+begin
+Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+
+  latihan1.Cancel;
+end;
+
+procedure TFDokter.HapusClick(Sender: TObject);
+begin
+
+  if not latihan1.IsEmpty then
+    latihan1.Delete
+  else
+    ShowMessage('Data kosong, tidak dapat dihapus.');
+end;
+
+procedure TFDokter.SimpanClick(Sender: TObject);
+begin
+Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := False;
+  Tutup.Enabled := True;
+
+
+  latihan1.Post;
+end;
+
+procedure TFDokter.TambahClick(Sender: TObject);
+begin
+  Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+
+  latihan1.Insert;
+end;
+
+procedure TFDokter.TutupClick(Sender: TObject);
+begin
+application.Terminate;
+end;
+
+procedure TFDokter.UbahClick(Sender: TObject);
+begin
+Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := True;
+  Simpan.Enabled := True;
+  Tutup.Enabled := False;
+
+
+  latihan1.Edit;
+end;
+
+end.

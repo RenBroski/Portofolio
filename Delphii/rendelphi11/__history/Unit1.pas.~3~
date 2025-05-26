@@ -1,0 +1,190 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls;
+
+type
+  TForm1 = class(TForm)
+    RadioGroupDaya: TDBRadioGroup;
+    RadioGroupGolongan: TDBRadioGroup;
+    Label1: TLabel;
+    LabelPemakaian: TLabel;
+    EditPemakaian: TEdit;
+    LabelBiayaBeban: TLabel;
+    LabelBiayaPemakaian: TLabel;
+    LabelPPJU: TLabel;
+    EditBiayaBeban: TEdit;
+    EditBiayaPemakaian: TEdit;
+    EditPPJU: TEdit;
+    EditMaterai: TEdit;
+    LabelMaterai: TLabel;
+    EditTotalTagihan: TEdit;
+    LabelTotalTagihan: TLabel;
+    ButtonHitung: TButton;
+    procedure ButtonHitungClick(Sender: TObject);
+  private
+    { Private declarations }
+    function HitungBiayaBeban(Daya: Integer; Golongan: String): Double;
+    function HitungBiayaPemakaian(Daya, Pemakaian: Integer; Golongan: String): Double;
+    function HitungPPJU(TotalBiayaListrik: Double): Double;
+    function HitungMaterai(TotalTagihan: Double): Integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.ButtonHitungClick(Sender: TObject);
+var
+  Daya, Pemakaian: Integer;
+  Golongan: String;
+  BiayaBeban, BiayaPemakaian, PPJU, TotalTagihan: Double;
+  Materai: Integer;
+begin
+  // Mendapatkan nilai dari pilihan daya dan golongan
+  Daya := StrToInt(RadioGroupDaya.Items[RadioGroupDaya.ItemIndex]);
+  Golongan := RadioGroupGolongan.Items[RadioGroupGolongan.ItemIndex];
+  Pemakaian := StrToInt(EditPemakaian.Text);
+
+  // Menghitung Biaya Beban
+  BiayaBeban := HitungBiayaBeban(Daya, Golongan);
+  EditBiayaBeban.Text := FloatToStr(BiayaBeban);
+
+  // Menghitung Biaya Pemakaian
+  BiayaPemakaian := HitungBiayaPemakaian(Daya, Pemakaian, Golongan);
+  EditBiayaPemakaian.Text := FloatToStr(BiayaPemakaian);
+
+  // Menghitung PPJU
+  PPJU := HitungPPJU(BiayaBeban + BiayaPemakaian);
+  EditPPJU.Text := FloatToStr(PPJU);
+
+  // Menghitung Materai
+  TotalTagihan := BiayaBeban + BiayaPemakaian + PPJU;
+  Materai := HitungMaterai(TotalTagihan);
+  EditMaterai.Text := IntToStr(Materai);
+
+  // Menghitung Total Tagihan
+  TotalTagihan := TotalTagihan + Materai;
+  EditTotalTagihan.Text := FloatToStr(TotalTagihan);
+end;
+
+function TForm1.HitungBiayaBeban(Daya: Integer; Golongan: String): Double;
+begin
+  if Golongan = 'Sosial' then
+  begin
+    case Daya of
+      450: Result := 10000;
+      900: Result := 15000;
+    end;
+  end
+  else if Golongan = 'Rumah Tangga' then
+  begin
+    case Daya of
+      450: Result := 11000;
+      900: Result := 20000;
+      1300: Result := 30100;
+    end;
+  end
+  else if Golongan = 'Bisnis' then
+  begin
+    case Daya of
+      450: Result := 23500;
+      900: Result := 26500;
+      1300: Result := 28200;
+    end;
+  end;
+end;
+
+function TForm1.HitungBiayaPemakaian(Daya, Pemakaian: Integer; Golongan: String): Double;
+begin
+  Result := 0;
+  if Golongan = 'Sosial' then
+  begin
+    case Daya of
+      450:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 123
+          else if Pemakaian <= 60 then Result := Pemakaian * 265
+          else Result := Pemakaian * 360;
+        end;
+      900:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 200
+          else if Pemakaian <= 60 then Result := Pemakaian * 295
+          else Result := Pemakaian * 360;
+        end;
+    end;
+  end
+  else if Golongan = 'Rumah Tangga' then
+  begin
+    case Daya of
+      450:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 169
+          else if Pemakaian <= 60 then Result := Pemakaian * 360
+          else Result := Pemakaian * 495;
+        end;
+      900:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 275
+          else if Pemakaian <= 60 then Result := Pemakaian * 445
+          else Result := Pemakaian * 495;
+        end;
+      1300:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 385
+          else if Pemakaian <= 60 then Result := Pemakaian * 445
+          else Result := Pemakaian * 495;
+        end;
+    end;
+  end
+  else if Golongan = 'Bisnis' then
+  begin
+    case Daya of
+      450:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 254
+          else if Pemakaian <= 60 then Result := Pemakaian * 420
+          else Result := Pemakaian * 470;
+        end;
+      900:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 420
+          else if Pemakaian <= 60 then Result := Pemakaian * 465
+          else Result := Pemakaian * 515;
+        end;
+      1300:
+        begin
+          if Pemakaian <= 30 then Result := Pemakaian * 470
+          else if Pemakaian <= 60 then Result := Pemakaian * 473
+          else Result := Pemakaian * 523;
+        end;
+    end;
+  end;
+end;
+
+function TForm1.HitungPPJU(TotalBiayaListrik: Double): Double;
+begin
+  Result := TotalBiayaListrik * 0.03;
+end;
+
+function TForm1.HitungMaterai(TotalTagihan: Double): Integer;
+begin
+  if TotalTagihan < 250000 then
+    Result := 0
+  else if TotalTagihan < 1000000 then
+    Result := 3000
+  else
+    Result := 6000;
+end;
+
+end.
+

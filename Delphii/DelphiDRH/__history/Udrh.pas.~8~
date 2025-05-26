@@ -1,0 +1,163 @@
+unit Udrh;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Data.DB,
+  Vcl.Mask, Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, Vcl.ToolWin,
+  Vcl.ComCtrls, System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors,
+  Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
+
+type
+  TFDRH = class(TForm)
+    ADOConnection1: TADOConnection;
+    riwayat: TADOQuery;
+    riwayatNIK: TStringField;
+    riwayatnama: TStringField;
+    riwayattempatlahir: TStringField;
+    riwayattgllahir: TDateField;
+    riwayatagama: TStringField;
+    riwayatpekerjaan: TStringField;
+    riwayatalamat: TMemoField;
+    riwayatkodepos: TStringField;
+    Label1: TLabel;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBGrid1: TDBGrid;
+    ToolBar1: TToolBar;
+    Tutup: TSpeedButton;
+    Hapus: TSpeedButton;
+    Ubah: TSpeedButton;
+    Simpan: TSpeedButton;
+    Batal: TSpeedButton;
+    Tambah: TSpeedButton;
+    DbEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBMemo1: TDBMemo;
+    DBEdit8: TDBEdit;
+    DateTimePicker1: TDateTimePicker;
+    ComboBox1: TComboBox;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    LinkFillControlToField1: TLinkFillControlToField;
+    procedure FormShow(Sender: TObject);
+    procedure TambahClick(Sender: TObject);
+    procedure SimpanClick(Sender: TObject);
+    procedure UbahClick(Sender: TObject);
+    procedure BatalClick(Sender: TObject);
+    procedure HapusClick(Sender: TObject);
+    procedure TutupClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CekDanBukaDataset;
+  public
+    { Public declarations }
+  end;
+
+var
+  FDRH: TFDRH;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFDRH.CekDanBukaDataset;
+begin
+  if not ADOConnection1.Connected then
+    ADOConnection1.Connected := True;
+
+  if not riwayat.Active then
+    riwayat.Open;
+end;
+
+procedure TFDRH.FormShow(Sender: TObject);
+begin
+  Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := False;
+  Tutup.Enabled := True;
+
+  CekDanBukaDataset;
+end;
+
+procedure TFDRH.TambahClick(Sender: TObject);
+begin
+  Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+  CekDanBukaDataset;
+  riwayat.Insert;
+end;
+
+procedure TFDRH.UbahClick(Sender: TObject);
+begin
+  Tambah.Enabled := False;
+  Ubah.Enabled := False;
+  Hapus.Enabled := True;
+  Batal.Enabled := True;
+  Simpan.Enabled := True;
+  Tutup.Enabled := False;
+
+  CekDanBukaDataset;
+  riwayat.Edit;
+end;
+
+procedure TFDRH.HapusClick(Sender: TObject);
+begin
+  CekDanBukaDataset;
+
+  if not riwayat.IsEmpty then
+    riwayat.Delete
+  else
+    ShowMessage('Data kosong, tidak dapat dihapus.');
+end;
+
+procedure TFDRH.SimpanClick(Sender: TObject);
+begin
+  Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := False;
+  Tutup.Enabled := True;
+
+  CekDanBukaDataset;
+  riwayat.Post;
+end;
+
+procedure TFDRH.BatalClick(Sender: TObject);
+begin
+  Tambah.Enabled := True;
+  Ubah.Enabled := True;
+  Hapus.Enabled := True;
+  Batal.Enabled := False;
+  Simpan.Enabled := True;
+  Tutup.Enabled := True;
+
+  CekDanBukaDataset;
+  riwayat.Cancel;
+end;
+
+procedure TFDRH.TutupClick(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+end.
+

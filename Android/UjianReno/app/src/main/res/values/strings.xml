@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ujian Reno</string>
+    <string name="search_hint">Cari video...</string>
+    <string name="play_video">Putar Video</string>
+    <string name="home">Beranda</string>
+    <string name="history">Riwayat</string>
+</resources>

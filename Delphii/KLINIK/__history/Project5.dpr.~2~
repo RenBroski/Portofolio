@@ -1,0 +1,16 @@
+program Project5;
+
+uses
+  Vcl.Forms,
+  Unit6 in 'Unit6.pas' {FKlinik},
+  Unit1 in 'Unit1.pas' {FPasien};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFKlinik, FKlinik);
+  Application.CreateForm(TFPasien, FPasien);
+  Application.Run;
+end.

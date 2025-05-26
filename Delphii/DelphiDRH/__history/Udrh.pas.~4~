@@ -1,0 +1,72 @@
+unit Udrh;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Data.DB,
+  Vcl.Mask, Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, Vcl.ToolWin,
+  Vcl.ComCtrls;
+
+type
+  TFDRH = class(TForm)
+    ADOConnection1: TADOConnection;
+    riwayat: TADOQuery;
+    riwayatNIK: TStringField;
+    riwayatnama: TStringField;
+    riwayattempatlahir: TStringField;
+    riwayattgllahir: TDateField;
+    riwayatagama: TStringField;
+    riwayatpekerjaan: TStringField;
+    riwayatalamat: TMemoField;
+    riwayatkodepos: TStringField;
+    Label1: TLabel;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBGrid1: TDBGrid;
+    ToolBar1: TToolBar;
+    Tutup: TSpeedButton;
+    Hapus: TSpeedButton;
+    Ubah: TSpeedButton;
+    Simpan: TSpeedButton;
+    Batal: TSpeedButton;
+    Tambah: TSpeedButton;
+    DbEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBMemo1: TDBMemo;
+    DBEdit8: TDBEdit;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDRH: TFDRH;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFDRH.FormShow(Sender: TObject);
+begin
+Tambah.Enabled=True;
+Ubah.Enabled=True;
+Hapus.Enabled=True;
+Batal.Enabled=False;
+Simpan.Enabled=False;
+Tutup.Enabled=True;
+end;
+
+end.
